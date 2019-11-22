@@ -1,10 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { ThemeProvider } from 'emotion-theming'
+import { Global } from '@emotion/core'
+import globalStyle from '../components/styles/global.js'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
+import theme from '../components/theme';
 
 class RootIndex extends React.Component {
   render() {
@@ -13,24 +17,27 @@ class RootIndex extends React.Component {
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
     return (
-      <Layout location={this.props.location} >
-        <div style={{ background: '#fff' }}>
-          <Helmet title={siteTitle} />
-          <Hero data={author.node} />
-          <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
-            </ul>
+      <ThemeProvider theme={theme}>
+        <Global styles={globalStyle} />
+        <Layout location={this.props.location} >
+          <div style={{ background: '#fff' }}>
+            <Helmet title={siteTitle} />
+            <Hero data={author.node} />
+            <div className="wrapper">
+              <h2 className="section-headline">Recent articles</h2>
+              <ul className="article-list">
+                {posts.map(({ node }) => {
+                  return (
+                    <li key={node.slug}>
+                      <ArticlePreview article={node} />
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
           </div>
-        </div>
-      </Layout>
+        </Layout>
+      </ThemeProvider>
     )
   }
 }
