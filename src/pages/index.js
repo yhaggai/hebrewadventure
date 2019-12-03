@@ -1,11 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { ThemeProvider } from 'emotion-theming'
-import { Global } from '@emotion/core'
-import globalStyle from '../components/styles/global.js'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import Hero from '../components/hero'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 import theme from '../components/theme';
@@ -13,18 +10,17 @@ import theme from '../components/theme';
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
-
+    const posts = [];
+    const [author] = get(this, 'props.data.allContentfulAsset.nodes')
+    debugger
     return (
       <ThemeProvider theme={theme}>
-        <Global styles={globalStyle} />
+
         <Layout location={this.props.location} >
           <div style={{ background: '#fff' }}>
             <Helmet title={siteTitle} />
-            <Hero data={author.node} />
             <div className="wrapper">
-              <h2 className="section-headline">Recent articles</h2>
+              <h2 className="section-headline">משחקים:</h2>
               <ul className="article-list">
                 {posts.map(({ node }) => {
                   return (
@@ -69,6 +65,20 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+    }
+    allContentfulAsset (filter: { contentful_id: { eq: "227qXpnpMNQ3eIoomgOaa1" } }) {
+    nodes {
+      contentful_id
+      title
+      fluid(
+            maxWidth: 1180
+            maxHeight: 480
+            resizingBehavior: PAD
+            background: "rgb:000000"
+          ) {
+            ...GatsbyContentfulFluid_tracedSVG
+          }
       }
     }
     allContentfulPerson(filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }) {

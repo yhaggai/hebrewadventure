@@ -1,13 +1,8 @@
 import { css } from '@emotion/core'
 
 const globalStyle = css`
-  @font-face {
-    font-family: 'radnika_next';
-    src: url('/static/radnika_next.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
-    html {
+  @import url('https://fonts.googleapis.com/css?family=Assistant&display=swap');
+  html {
     box-sizing: border-box;
     font-size: 10px;
   }
@@ -20,7 +15,7 @@ const globalStyle = css`
     direction: rtl;  
     font-size: 1.5rem;
     line-height: 2;
-    font-family: 'radnika_next';
+    font-family: 'Assistant', sans-serif;
   }
   a {
     text-decoration: none;

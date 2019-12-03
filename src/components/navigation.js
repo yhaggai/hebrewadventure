@@ -15,10 +15,10 @@ export default () => (
   <Nav color="secondary" bg="bg" role="navigation">
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
-        <Link to="/">Home</Link>
+        <Link to="/">בית</Link>
       </li>
       <li className={styles.navigationItem}>
-        <Link to="/blog/">Blog</Link>
+        <Link to="/blog/">משחקים</Link>
       </li>
     </ul>
   </Nav>

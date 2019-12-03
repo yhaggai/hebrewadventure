@@ -1,10 +1,12 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import base from './base.css'
-import Container from './container'
-import Navigation from './navigation'
+import React from 'react';
+import { Link } from 'gatsby';
+import Container from './container';
+import Navigation from './navigation';
+import { Global } from '@emotion/core';
+import globalStyle from './styles/global';
 
-class Template extends React.Component {
+
+class Layout extends React.Component {
   render() {
     const { location, children } = this.props
     let header
@@ -16,6 +18,7 @@ class Template extends React.Component {
 
     return (
       <Container>
+        <Global styles={globalStyle} />
         <Navigation />
         {children}
       </Container>
@@ -23,4 +26,4 @@ class Template extends React.Component {
   }
 }
 
-export default Template
+export default Layout
