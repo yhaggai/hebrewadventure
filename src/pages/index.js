@@ -5,32 +5,22 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
-import theme from '../theme';
+import theme from '../theme'
+import FeaturedGallery from '../components/featured-gallery'
 
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = [];
+    const featuredGames = get(
+      this,
+      'props.data.allContentfulFeaturedGames.edges[0].node.featuredGames'
+    )
+    const posts = []
     const [author] = get(this, 'props.data.allContentfulAsset.nodes')
     return (
       <ThemeProvider theme={theme}>
-
-        <Layout location={this.props.location} >
-          <div style={{ background: '#fff' }}>
-            <Helmet title={siteTitle} />
-            <div className="wrapper">
-              <h2 className="section-headline">משחקים:</h2>
-              <ul className="article-list">
-                {posts.map(({ node }) => {
-                  return (
-                    <li key={node.slug}>
-                      <ArticlePreview article={node} />
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          </div>
+        <Layout location={this.props.location}>
+          <FeaturedGallery featuredGames={featuredGames} />
         </Layout>
       </ThemeProvider>
     )
@@ -55,7 +45,7 @@ export const pageQuery = graphql`
           tags
           heroImage {
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-             ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
           description {
@@ -66,21 +56,25 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulAsset (filter: { contentful_id: { eq: "227qXpnpMNQ3eIoomgOaa1" } }) {
-    nodes {
-      contentful_id
-      title
-      fluid(
-            maxWidth: 1180
-            maxHeight: 480
-            resizingBehavior: PAD
-            background: "rgb:000000"
-          ) {
-            ...GatsbyContentfulFluid_tracedSVG
-          }
+    allContentfulAsset(
+      filter: { contentful_id: { eq: "227qXpnpMNQ3eIoomgOaa1" } }
+    ) {
+      nodes {
+        contentful_id
+        title
+        fluid(
+          maxWidth: 1180
+          maxHeight: 480
+          resizingBehavior: PAD
+          background: "rgb:000000"
+        ) {
+          ...GatsbyContentfulFluid_tracedSVG
+        }
       }
     }
-    allContentfulPerson(filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }) {
+    allContentfulPerson(
+      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
+    ) {
       edges {
         node {
           name
@@ -96,6 +90,21 @@ export const pageQuery = graphql`
               background: "rgb:000000"
             ) {
               ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+    allContentfulFeaturedGames {
+      edges {
+        node {
+          featuredGames {
+            titleHebrew
+            subHeader
+            banner {
+              fluid(maxHeight: 450) {
+                src
+              }
             }
           }
         }

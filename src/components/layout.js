@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import Container from './container';
-import Navigation from './navigation';
-import { Global } from '@emotion/core';
-import globalStyle from './styles/global';
-
+import React from 'react'
+import { Link } from 'gatsby'
+import Container from './container'
+import Navigation from './navigation'
+import Header from './header'
+import { Global } from '@emotion/core'
+import globalStyle from './styles/global'
 
 class Layout extends React.Component {
   render() {
@@ -19,7 +19,7 @@ class Layout extends React.Component {
     return (
       <Container>
         <Global styles={globalStyle} />
-        <Navigation />
+        <Header />
         {children}
       </Container>
     )

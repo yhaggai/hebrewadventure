@@ -1,15 +1,15 @@
 import React from 'react'
-import { graphql } from 'gatsby';
-import ImageGallery from 'react-image-gallery';
-import Img from 'gatsby-image';
-import { space } from 'styled-system';
-import Heading from '../components/heading';
-import styled from '@emotion/styled';
-import { map, flow, zip } from 'lodash/fp';
-import Layout from '../components/layout';
-import SubHeader from '../components/subHeader';
+import { graphql } from 'gatsby'
+import ImageGallery from 'react-image-gallery'
+import Img from 'gatsby-image'
+import { space } from 'styled-system'
+import Heading from '../components/heading'
+import styled from '@emotion/styled'
+import { map, flow, zip } from 'lodash/fp'
+import Layout from '../components/layout'
+import SubHeader from '../components/subHeader'
 
-import "react-image-gallery/styles/css/image-gallery.css";
+import 'react-image-gallery/styles/css/image-gallery.css'
 
 const Banner = styled(Img)`
   height: 61.50894vw;
@@ -22,13 +22,19 @@ const Title = styled(Heading)`
 const Spacer = styled.div(space)
 
 const Game = ({ data: { contentfulGame } }) => {
-  const { title, titleHebrew, banner, screenshots, thumbnails } = contentfulGame;
+  const { title, titleHebrew, banner, screenshots, thumbnails } = contentfulGame
 
   const images = flow(
     zip,
-    map(([screenshot, thumbnail]) => ([screenshot.fluid.src, thumbnail.fluid.src])),
-    map(([screenshotSrc, thumbnailSrc]) => ({ original: screenshotSrc, thumbnail: thumbnailSrc }))
-  )(screenshots, thumbnails);
+    map(([screenshot, thumbnail]) => [
+      screenshot.fluid.src,
+      thumbnail.fluid.src,
+    ]),
+    map(([screenshotSrc, thumbnailSrc]) => ({
+      original: screenshotSrc,
+      thumbnail: thumbnailSrc,
+    }))
+  )(screenshots, thumbnails)
 
   return (
     <Layout>
@@ -37,34 +43,33 @@ const Game = ({ data: { contentfulGame } }) => {
       <Spacer />
       <Banner fluid={banner.fluid} />
       <ImageGallery items={images} />
-      <SubHeader>hi!sdsdds</SubHeader>
+      <SubHeader>hi!</SubHeader>
     </Layout>
-  );
-};
-
+  )
+}
 
 export const pageQuery = graphql`
   query GameBySlug($slug: String!) {
-        contentfulGame(slug: {eq: $slug }) {
-        title
-        titleHebrew
+    contentfulGame(slug: { eq: $slug }) {
+      title
+      titleHebrew
       screenshots {
         fluid(maxWidth: 800) {
-        src
-      }
+          src
+        }
       }
       thumbnails: screenshots {
         fluid(maxWidth: 200) {
-        src
-      }
+          src
+        }
       }
       banner {
         fluid(maxWidth: 1080) {
-        ...GatsbyContentfulFluid
-      }
+          ...GatsbyContentfulFluid
+        }
       }
     }
   }
 `
 
-export default Game;
+export default Game

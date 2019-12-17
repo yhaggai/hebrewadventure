@@ -1,36 +1,47 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { space, fontSize, theme } from 'styled-system';
-import { themeGet } from '@styled-system/theme-get'
-import { SearchAlt } from 'emotion-icons/boxicons-regular'
+import React from 'react'
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
+import { space, fontSize, color } from 'styled-system'
+import Button from './button.js'
+import Flex from './flex'
+import SearchAlt from 'emotion-icons/boxicons-regular/SearchAlt'
+import Box from './box'
+import { colors } from '../theme.js'
 
-
-const StyledSearchBar = styled.div`
-  background-color: ${themeGet('colors.gray.1')};
-  ${space}
-  ${fontSize};
-`;
-
+const Span = Box.withComponent('span')
 const Input = styled.input`
-  font-family: 'stranger', sans-serif;
-  border: none;    
-  color: ${themeGet('colors.gray.0')};
-  background-color: ${themeGet('colors.gray.1')};
-`;
+  font-family: 'stranger';
+  border: none;
+  flex: 1;
+  padding-right: 1rem;
+  ${color};
+  ${fontSize}
+  ${space}
+`
+const StyledIconStyle = styled(SearchAlt)`
+  color: ${colors.white};
+  margin-right: 10px;
+  margin-left: 10px;
+  min-width: 4rem;
+`
 
-const Button = styled.button`
-  background-color: ${themeGet('colors.blue.0')};
-  color: transparent;
-`;
-
-const SearchBar = () => {
+const SearchBar = props => {
   return (
-    <StyledSearchBar>
-      <SearchAlt />
-      <Input type="text" placeholder="שם המשחק..." />
-      <Button type="submit"></Button>
-    </StyledSearchBar>
-  );
-};
+    <Span {...props} display="inline-flex" bg="gray.1">
+      <StyledIconStyle size={'3rem'} />
+      <Input
+        color="gray.0"
+        bg="gray.1"
+        type="text"
+        placeholder="שם המשחק..."
+        fontSize="5"
+        py="1.5rem"
+      />
+      <Button color="bunker" type="submit" bg="brightTurquoise">
+        חפשו
+      </Button>
+    </Span>
+  )
+}
 
-export default SearchBar;
+export default SearchBar
