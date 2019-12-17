@@ -1,12 +1,18 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import Heading from './heading';
+import { border, space } from 'styled-system'
 
-const SubHeader = () => {
-  return (
-    <div>
+const Box = styled.div`
+  ${space}
+  ${border}
+`
 
-    </div>
-  );
-};
+
+const SubHeader = ({ children }) => {
+  return <Box border={1} m={2} borderColor="red">
+    {children}
+  </Box>
+}
 
 export default SubHeader;

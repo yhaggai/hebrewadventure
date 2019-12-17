@@ -7,6 +7,7 @@ import Heading from '../components/heading';
 import styled from '@emotion/styled';
 import { map, flow, zip } from 'lodash/fp';
 import Layout from '../components/layout';
+import SubHeader from '../components/subHeader';
 
 import "react-image-gallery/styles/css/image-gallery.css";
 
@@ -36,6 +37,7 @@ const Game = ({ data: { contentfulGame } }) => {
       <Spacer />
       <Banner fluid={banner.fluid} />
       <ImageGallery items={images} />
+      <SubHeader>hi!sdsdds</SubHeader>
     </Layout>
   );
 };

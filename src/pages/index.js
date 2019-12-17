@@ -5,14 +5,13 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
-import theme from '../components/theme';
+import theme from '../theme';
 
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = [];
     const [author] = get(this, 'props.data.allContentfulAsset.nodes')
-    debugger
     return (
       <ThemeProvider theme={theme}>
 
