@@ -12,7 +12,7 @@ const StyledLogo = styled(Grid)`
 const Logo = props => {
   return (
     <Flex {...props} flexDirection="column">
-      <GlowText color="brightTurquoise" fontSize="8" glowRadius="2">
+      <GlowText color="brightTurquoise" fontSize="4rem" glowRadius="2">
         הרפתקה בעברית
       </GlowText>
       <Text color="brightTurquoise" opacity="0.6" fontSize="4">

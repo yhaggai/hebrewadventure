@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import ImageGallery from 'react-image-gallery'
-import { graphql } from 'gatsby'
 import 'react-image-gallery/styles/css/image-gallery.css'
 import Grid from './grid'
 import Box from './box'
@@ -17,6 +16,7 @@ const StyledFeaturedGallery = styled(Grid)`
   grid-column: full-start / full-end;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: min-content;
+  margin: 5rem 0;
 `
 
 const StyledImageGallery = styled.div`
@@ -39,12 +39,11 @@ FeaturedGameContent.Title = styled(Box)``
 FeaturedGameContent.Description = styled(Box)``
 
 const FeaturedGallery = ({ featuredGames }) => {
-  console.log(featuredGames)
   const [featuredGameIndex, setFeaturedGameIndex] = useState(0)
+  console.log(featuredGames)
   const images = map(featuredGames, featuredGame => ({
-    original: featuredGame.banner?.fluid?.src,
+    srcSet: featuredGame.banner?.fluid?.srcSet,
   }))
-  console.log(images)
   const { titleHebrew, subHeader } = featuredGames[featuredGameIndex]
   return (
     <StyledFeaturedGallery>

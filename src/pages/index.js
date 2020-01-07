@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 import theme from '../theme'
 import FeaturedGallery from '../components/featured-gallery'
-
+import GamesGallery from '../components/games-gallery'
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -17,10 +17,12 @@ class RootIndex extends React.Component {
     )
     const posts = []
     const [author] = get(this, 'props.data.allContentfulAsset.nodes')
+    const games = get(this, 'props.data.allContentfulGame.edges')
     return (
       <ThemeProvider theme={theme}>
         <Layout location={this.props.location}>
           <FeaturedGallery featuredGames={featuredGames} />
+          <GamesGallery games={games} />
         </Layout>
       </ThemeProvider>
     )
@@ -51,6 +53,24 @@ export const pageQuery = graphql`
           description {
             childMarkdownRemark {
               html
+            }
+          }
+        }
+      }
+    }
+    allContentfulGame {
+      edges {
+        node {
+          title
+          titleHebrew
+          gameBox {
+            fluid(
+              maxWidth: 720
+              maxHeight: 908
+              # cropFocus: TOP
+              resizingBehavior: SCALE
+            ) {
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
@@ -102,8 +122,13 @@ export const pageQuery = graphql`
             titleHebrew
             subHeader
             banner {
-              fluid(maxHeight: 450) {
-                src
+              fluid(
+                maxHeight: 300
+                maxWidth: 1000
+                resizingBehavior: PAD
+                background: "rgb:000000"
+              ) {
+                ...GatsbyContentfulFluid_tracedSVG
               }
             }
           }

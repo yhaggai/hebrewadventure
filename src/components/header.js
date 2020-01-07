@@ -12,48 +12,49 @@ import Flex from './flex'
 import { colors } from '../theme.js'
 
 const LogoStyle = css`
-  grid-column: 1 / 2;
+  grid-area: logo;
 `
 
 const SearchBarStyle = css`
-  align-self: end;
+  align-self: center;
+  grid-area: search-bar;
 `
 
-const HeaderGrid = styled(Grid)`
+const StyledGrid = styled(Grid)`
   grid-column: full-start / full-end;
+  grid-template-columns:
+    1fr minmax(max-content, 6fr) min-content minmax(max-content, 6fr)
+    1fr;
+  grid-template-areas: '. logo search-bar navigation .';
   padding: 2rem;
 `
 
 const NavigationStyle = css`
   align-self: center;
+  grid-area: navigation;
+  align-self: center;
+  display: flex;
+  justify-content: flex-end;
 `
 
 const LinkStyle = styled(Link)({
   ':visited': {
     color: 'inherit',
   },
+  marginLeft: '10px',
   color: colors.brightTurquoise,
   fontSize: '2.3rem',
 })
 
 const Header = () => (
-  <HeaderGrid
-    gridTemplateColumns="minmax(max-content,1fr) min-content 1fr"
-    gridGap="2rem"
-  >
+  <StyledGrid gridGap="2rem">
     <Logo css={LogoStyle} />
     <SearchBar css={SearchBarStyle} />
-    <Navigation
-      css={NavigationStyle}
-      alignSelf="center"
-      justifyContent="flex-start"
-    >
-      <Grid gridTemplateColumns="repeat(auto-fill, 50px)" gridColumnGap="2rem">
-        <LinkStyle to="/">בית</LinkStyle>
-        <LinkStyle to="/blog/">משחקים</LinkStyle>
-      </Grid>
+    <Navigation css={NavigationStyle}>
+      <LinkStyle to="/">בית</LinkStyle>
+      <LinkStyle to="/blog/">משחקים</LinkStyle>
     </Navigation>
-  </HeaderGrid>
+  </StyledGrid>
 )
 
 export default Header
