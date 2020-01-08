@@ -8,6 +8,7 @@ import ArticlePreview from '../components/article-preview'
 import theme from '../theme'
 import FeaturedGallery from '../components/featured-gallery'
 import GamesGallery from '../components/games-gallery'
+
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')

@@ -9,6 +9,7 @@ const COLORS = {
   RIVER_STYX: '#171a21',
   DUSTY_WARRIOR: '#b8b6b4',
 }
+
 export const colors = {
   black: '#000000',
   white: '#FFFFFF',
@@ -24,6 +25,7 @@ export const colors = {
   blackfade50: 'rgba(27, 31, 35, 0.5)',
   racingGreen70: 'rgba(10, 22, 10, 0.69)',
   brightTurquoise: '#02EBDF',
+  aztec: '#122327',
   blue: ['#6cccfd', '#468aa1', '#0F1719'],
   gray: ['#676d6d', '#262f2f'],
 }

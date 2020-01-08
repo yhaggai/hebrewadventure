@@ -21,7 +21,7 @@ const SearchBarStyle = css`
 `
 
 const StyledGrid = styled(Grid)`
-  grid-column: full-start / full-end;
+  grid-area: header;
   grid-template-columns:
     1fr minmax(max-content, 6fr) min-content minmax(max-content, 6fr)
     1fr;
@@ -47,7 +47,7 @@ const LinkStyle = styled(Link)({
 })
 
 const Header = () => (
-  <StyledGrid gridGap="2rem">
+  <StyledGrid as="header" gridGap="2rem">
     <Logo css={LogoStyle} />
     <SearchBar css={SearchBarStyle} />
     <Navigation css={NavigationStyle}>

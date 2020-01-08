@@ -13,7 +13,7 @@ import { map, pick } from 'lodash'
 import { css, jsx } from '@emotion/core'
 
 const StyledFeaturedGallery = styled(Grid)`
-  grid-column: full-start / full-end;
+  grid-area: featured;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: min-content;
   margin: 5rem 0;
@@ -46,7 +46,7 @@ const FeaturedGallery = ({ featuredGames }) => {
   }))
   const { titleHebrew, subHeader } = featuredGames[featuredGameIndex]
   return (
-    <StyledFeaturedGallery>
+    <StyledFeaturedGallery as="section">
       <StyledImageGallery>
         <ImageGallery
           items={images}
