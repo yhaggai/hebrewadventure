@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import ImageGallery from 'react-image-gallery'
 import Img from 'gatsby-image'
@@ -21,10 +21,8 @@ const Title = styled(Heading)`
 
 const Spacer = styled.div(space)
 
-const Game = ({ data: { contentfulGame } }) => {
-  const { title, titleHebrew, banner, screenshots, thumbnails } = contentfulGame
-
-  const images = flow(
+function getGalleryImages({ screenshots, thumbnails }) {
+  return flow(
     zip,
     map(([screenshot, thumbnail]) => [
       screenshot.fluid.src,
@@ -35,6 +33,14 @@ const Game = ({ data: { contentfulGame } }) => {
       thumbnail: thumbnailSrc,
     }))
   )(screenshots, thumbnails)
+}
+
+const Game = ({ data: { contentfulGame } }) => {
+  console.log('contentfulGame', contentfulGame)
+  const { title, titleHebrew, banner, screenshots, thumbnails } = contentfulGame
+  const [galleryImages, setGalleryImages] = useState(() =>
+    getGalleryImages(contentfulGame)
+  )
 
   return (
     <Layout>
@@ -42,7 +48,7 @@ const Game = ({ data: { contentfulGame } }) => {
       <Title>{title}</Title>
       <Spacer />
       <Banner fluid={banner.fluid} />
-      <ImageGallery items={images} />
+      <ImageGallery items={galleryImages} />
       <SubHeader>hi!</SubHeader>
     </Layout>
   )

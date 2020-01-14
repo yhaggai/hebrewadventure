@@ -64,13 +64,9 @@ export const pageQuery = graphql`
         node {
           title
           titleHebrew
+          slug
           gameBox {
-            fluid(
-              maxWidth: 720
-              maxHeight: 908
-              # cropFocus: TOP
-              resizingBehavior: SCALE
-            ) {
+            fluid(maxWidth: 720, maxHeight: 908, resizingBehavior: SCALE) {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }

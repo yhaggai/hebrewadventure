@@ -60,7 +60,7 @@ const ImageWrapperStyle = css`
   }
 `
 const Game = ({ game }) => (
-  <StyledGame>
+  <StyledGame as="a" href={`/games/${game.slug}`}>
     <Box css={ImageWrapperStyle}>
       <Img css={css} fluid={game.gameBox.fluid} />
     </Box>

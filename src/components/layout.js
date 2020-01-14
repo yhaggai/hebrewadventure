@@ -10,7 +10,7 @@ import Footer from './footer'
 import rectangle from '../../static/svgs/rectangle.svg'
 
 const StyledLayout = styled(Box)`
-  background: url(${rectangle});
+  /* background: url(${rectangle}); */
   background-position: bottom right;
   background-size: 50vw;
   background-repeat: no-repeat;
