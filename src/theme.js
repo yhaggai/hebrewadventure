@@ -25,7 +25,13 @@ export const colors = {
   blackfade50: 'rgba(27, 31, 35, 0.5)',
   racingGreen70: 'rgba(10, 22, 10, 0.69)',
   brightTurquoise: '#02EBDF',
+  turquoiseBlue: '#5DEDE8',
+  teal: '#00928D',
   aztec: '#122327',
+  limedSpruce: '#394D52',
+  outerSpace: '#1D2B2E',
+  firefly: '#0A1A1E',
+  blackPearl: '#031013',
   blue: ['#6cccfd', '#468aa1', '#0F1719'],
   gray: ['#676d6d', '#262f2f'],
 }

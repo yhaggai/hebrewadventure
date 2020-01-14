@@ -12,6 +12,7 @@ const globalStyle = css`
     src: url(${strangerFont}) format('woff2');
   }
   html {
+    -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
     font-size: 62.5%;
     ${'' /* 62.5% = 10px */}
