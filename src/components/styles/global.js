@@ -4,6 +4,7 @@ import strangerFont from '../../../static/fonts/stranger.woff2'
 
 const { colors, fonts } = theme
 const globalStyle = css`
+  @import url('https://fonts.googleapis.com/css?family=Nunito:400');
   @font-face {
     font-family: 'stranger';
     font-style: normal;

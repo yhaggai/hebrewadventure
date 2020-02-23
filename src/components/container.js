@@ -5,16 +5,15 @@ import Grid from './grid'
 const Container = styled(Grid)`
   position: relative;
   grid-template-columns:
-    [full-start] minmax(3rem, 1fr) minmax(min-content, 20rem) [center-start] repeat(
+    minmax(3rem, 1fr) minmax(min-content, 20rem) repeat(
       7,
-      [col-start] minmax(min-content, 20rem) [col-end]
+      minmax(min-content, 20rem)
     )
-    [center-end] minmax(3rem, 1fr) [full-end];
-  grid-template-rows: repeat(4, min-content);
+    minmax(3rem, 1fr);
+  grid-template-rows: repeat(3, min-content);
   grid-template-areas:
     'header header header header header header header header header header'
-    'featured featured featured featured featured featured featured featured featured featured'
-    '. gallery  gallery gallery gallery gallery gallery gallery gallery .'
+    'main main main main main main main main main main'
     '. footer footer footer footer footer footer footer footer footer';
   padding: 3rem 0;
 `

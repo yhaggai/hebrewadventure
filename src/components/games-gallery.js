@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import Grid from './grid'
 import Box from './box'
@@ -60,12 +61,12 @@ const ImageWrapperStyle = css`
   }
 `
 const Game = ({ game }) => (
-  <StyledGame as="a" href={`/games/${game.slug}`}>
+  <Link to={`/games/${game.slug}`}>
     <Box css={ImageWrapperStyle}>
       <Img css={css} fluid={game.gameBox.fluid} />
     </Box>
     <div className="game-title">{game.titleHebrew}</div>
-  </StyledGame>
+  </Link>
 )
 
 const Header = styled(Flex)``
