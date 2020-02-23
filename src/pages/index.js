@@ -1,14 +1,27 @@
 import React from 'react'
+import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import { ThemeProvider } from 'emotion-theming'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
+import Grid from '../components/grid'
 import ArticlePreview from '../components/article-preview'
 import theme from '../theme'
 import FeaturedGallery from '../components/featured-gallery'
 import GamesGallery from '../components/games-gallery'
 
+const MainContent = styled(Grid)`
+  grid-area: main;
+  grid-template-columns: minmax(3rem, 1fr) repeat(8, minmax(min-content, 20rem)) minmax(
+      3rem,
+      1fr
+    );
+  grid-template-rows: repeat(2, min-content);
+  grid-template-areas:
+    'featured featured featured featured featured featured featured featured featured featured'
+    '. gallery  gallery gallery gallery gallery gallery gallery gallery .';
+`
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -20,12 +33,12 @@ class RootIndex extends React.Component {
     const [author] = get(this, 'props.data.allContentfulAsset.nodes')
     const games = get(this, 'props.data.allContentfulGame.edges')
     return (
-      <ThemeProvider theme={theme}>
-        <Layout location={this.props.location}>
+      <Layout location={this.props.location}>
+        <MainContent as="main">
           <FeaturedGallery featuredGames={featuredGames} />
           <GamesGallery games={games} />
-        </Layout>
-      </ThemeProvider>
+        </MainContent>
+      </Layout>
     )
   }
 }
@@ -39,26 +52,26 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
+    # allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    #   edges {
+    #     node {
+    #       title
+    #       slug
+    #       publishDate(formatString: "MMMM Do, YYYY")
+    #       tags
+    #       heroImage {
+    #         fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+    #           ...GatsbyContentfulFluid_tracedSVG
+    #         }
+    #       }
+    #       description {
+    #         childMarkdownRemark {
+    #           html
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
     allContentfulGame {
       edges {
         node {
@@ -118,6 +131,7 @@ export const pageQuery = graphql`
           featuredGames {
             titleHebrew
             subHeader
+            slug
             banner {
               fluid(
                 maxHeight: 300

@@ -9,14 +9,11 @@ import Box from './box'
 import { colors } from '../theme.js'
 
 const Span = Box.withComponent('span')
-const Input = styled.input`
+const Input = styled(Box)`
   font-family: 'stranger';
   border: none;
   flex: 1;
   padding-right: 1rem;
-  ${color};
-  ${fontSize}
-  ${space}
 `
 const StyledIconStyle = styled(SearchAlt)`
   color: ${colors.white};
@@ -28,8 +25,8 @@ const StyledIconStyle = styled(SearchAlt)`
 const SearchBar = props => {
   return (
     <Span {...props} display="inline-flex" bg="gray.1">
-      <StyledIconStyle size={'3rem'} />
-      <Input
+      <StyledIconStyle size='3rem' />
+      <Input as='input'
         color="gray.0"
         bg="gray.1"
         type="text"
@@ -37,7 +34,7 @@ const SearchBar = props => {
         fontSize="5"
         py="1.5rem"
       />
-      <Button color="bunker" type="submit" bg="brightTurquoise">
+      <Button color="bunker" bg="brightTurquoise">
         חפשו
       </Button>
     </Span>
