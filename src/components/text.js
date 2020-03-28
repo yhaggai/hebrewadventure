@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 import { space, fontSize, fontWeight, lineHeight, color } from 'styled-system';
 
-export default Text = styled('div')`
+
+const Text = styled.div`
   ${space}
   ${fontSize}
   ${fontWeight}
@@ -15,3 +16,4 @@ Text.propTypes = {
   ...lineHeight.propTypes,
   ...color.propTypes,
 }
+export default Text

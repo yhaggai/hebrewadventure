@@ -23,11 +23,6 @@ const MainContent = styled(Grid)`
     '. gallery  gallery gallery gallery gallery gallery gallery gallery .';
 `
 class RootIndex extends React.Component {
-  // async componentWillMount() {
-  // const res = await fetch("https://haggaidevaccount.spaces.nexudus.com/en/user/login?t=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRvZ2FmaWwzMzdAeGh5ZW1haWwuY29tIiwiaXNzIjoic2VsZiIsImF1ZCI6Imh0dHBzOi8vc3BhY2VzLm5leHVkdXMuY29tIiwiZXhwIjoxNTgyNDkwNjc4LCJuYmYiOjE1ODI0ODg4Nzh9.q9mchKpw-BMtNAhgOIFSrs7Ufsi4uVvc2S4jqSaEdSw")
-  // console.log(res);
-
-  // }
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const featuredGames = get(
@@ -40,12 +35,8 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <MainContent as="main">
-          <iframe id="inlineFrameExample"
-            title="Inline Frame Example"
-            width="1080"
-            height="800"
-            src="https://haggaidevaccount.spaces.nexudus.com/en/bookings/calendar">
-          </iframe>
+          <FeaturedGallery featuredGames={featuredGames} />
+          <GamesGallery games={games} />
         </MainContent>
       </Layout>
     )
