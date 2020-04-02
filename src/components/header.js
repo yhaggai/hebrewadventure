@@ -1,24 +1,21 @@
-/** @jsx jsx */
-
-import React from 'react'
-import styled from '@emotion/styled'
-import Logo from './logo'
-import { css, jsx } from '@emotion/core'
-import { Link } from 'gatsby'
-import SearchBar from './searchBar'
-import Navigation from './navigation'
-import Grid from './grid'
-import Flex from './flex'
-import { colors } from '../theme.js'
+import styled from '@emotion/styled';
+import Logo from './logo';
+import { css } from '@emotion/core';
+import { Link } from 'gatsby';
+import SearchBar from './searchBar';
+import Navigation from './navigation';
+import { Grid } from './base-components';
+import { colors } from '../theme.js';
 
 const LogoStyle = css`
   grid-area: logo;
-`
+  text-decoration: none;
+`;
 
 const SearchBarStyle = css`
   align-self: center;
   grid-area: search-bar;
-`
+`;
 
 const StyledGrid = styled(Grid)`
   grid-area: header;
@@ -27,7 +24,7 @@ const StyledGrid = styled(Grid)`
     1fr;
   grid-template-areas: '. logo search-bar navigation .';
   padding: 2rem;
-`
+`;
 
 const NavigationStyle = css`
   align-self: center;
@@ -35,7 +32,7 @@ const NavigationStyle = css`
   align-self: center;
   display: flex;
   justify-content: flex-end;
-`
+`;
 
 const LinkStyle = styled(Link)({
   ':visited': {
@@ -44,17 +41,16 @@ const LinkStyle = styled(Link)({
   marginLeft: '10px',
   color: colors.brightTurquoise,
   fontSize: '2.3rem',
-})
+});
 
 const Header = () => (
   <StyledGrid as="header" gridGap="2rem">
-    <Logo css={LogoStyle} />
+    <Link to="/" css={LogoStyle}>
+      <Logo />
+    </Link>
     <SearchBar css={SearchBarStyle} />
-    <Navigation css={NavigationStyle}>
-      <LinkStyle to="/">בית</LinkStyle>
-      <LinkStyle to="/blog/">משחקים</LinkStyle>
-    </Navigation>
+    <Navigation css={NavigationStyle}></Navigation>
   </StyledGrid>
-)
+);
 
-export default Header
+export default Header;

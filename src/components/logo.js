@@ -1,15 +1,10 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import Text from './text'
-import { grid } from 'styled-system'
-import GlowText from './glow-text'
-import Flex from './flex'
-import Grid from './grid'
-const StyledLogo = styled(Grid)`
-  grid-template-rows: 1fr 1fr;
-`
+import React from 'react';
+import styled from '@emotion/styled';
+import Text from './text';
+import GlowText from './glow-text';
+import { Flex } from './base-components';
 
-const Logo = props => {
+const Logo = (props) => {
   return (
     <Flex {...props} flexDirection="column">
       <GlowText
@@ -24,7 +19,7 @@ const Logo = props => {
         קווסטים בעברית לילדים ולמבוגרים
       </Text>
     </Flex>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;

@@ -11,6 +11,7 @@ module.exports = {
   globals: {
     graphql: false,
   },
+
   parserOptions: {
     sourceType: 'module',
     ecmaFeatures: {
@@ -18,4 +19,4 @@ module.exports = {
       jsx: true,
     },
   },
-}
+};

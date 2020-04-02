@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import Grid from './grid'
+import React from 'react';
+import styled from '@emotion/styled';
+import { Grid } from './base-components';
 
 const Container = styled(Grid)`
   position: relative;
@@ -10,12 +10,12 @@ const Container = styled(Grid)`
       minmax(min-content, 20rem)
     )
     minmax(3rem, 1fr);
-  grid-template-rows: repeat(3, min-content);
+  grid-template-rows: repeat(2, min-content) minmax(min-content, 50rem);
   grid-template-areas:
     'header header header header header header header header header header'
     'main main main main main main main main main main'
     '. footer footer footer footer footer footer footer footer footer';
   padding: 3rem 0;
-`
+`;
 
-export default ({ children }) => <Container>{children}</Container>
+export default ({ children }) => <Container>{children}</Container>;
