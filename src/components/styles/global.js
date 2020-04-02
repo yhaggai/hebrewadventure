@@ -1,8 +1,8 @@
-import { css } from '@emotion/core'
-import theme from '../../theme.js'
-import strangerFont from '../../../static/fonts/stranger.woff2'
+import { css } from '@emotion/core';
+import theme from '../../theme.js';
+import strangerFont from '../../../static/fonts/stranger.woff2';
 
-const { colors, fonts } = theme
+const { colors, fonts } = theme;
 const globalStyle = css`
   @import url('https://fonts.googleapis.com/css?family=Nunito:400');
   @font-face {
@@ -39,5 +39,11 @@ const globalStyle = css`
   h2 {
     margin: 0;
   }
-`
-export default globalStyle
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    color: inherit;
+  }
+`;
+export default globalStyle;

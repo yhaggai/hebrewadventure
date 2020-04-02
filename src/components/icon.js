@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import Box from './box'
-import { colors } from '../theme'
+import React from 'react';
+import styled from '@emotion/styled';
+import { Box } from './base-components';
+import { colors } from '../theme';
 
 const StyledIcon = styled(Box)`
   display: flex;
@@ -32,15 +32,15 @@ const StyledIcon = styled(Box)`
     text-shadow: 0 0 .5rem ${colors.turquoiseBlue};
   }
 }
-`
+`;
 StyledIcon.defaultProps = {
   backgroundColor: colors.aztec,
   width: '5rem',
   height: '5rem',
-}
+};
 
 const Icon = ({ children }) => {
-  return <StyledIcon className="icon">{children}</StyledIcon>
-}
+  return <StyledIcon className="icon">{children}</StyledIcon>;
+};
 
-export default Icon
+export default Icon;
