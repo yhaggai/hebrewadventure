@@ -1,10 +1,10 @@
 {
-  "name": "gatsby-contentful-starter",
+  "name": "hebrew_adventure",
   "description": "Starter Contentful Gatsby Blog",
   "version": "1.0.0",
   "author": "Stefan Judis <stefanjudis@gmail.com>",
   "bugs": {
-    "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
+    "url": "https://github.com/yhaggai/hebrewadventure/issues"
   },
   "dependencies": {
     "@emotion/core": "10.0.28",
@@ -64,7 +64,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gatsby build",
     "setup": "node ./bin/setup.js",
-    "start": "gatsby serve",
+    "start": "NODE_ENV=production gatsby serve ",
     "cleanup-repository": "rimraf bin contentful && yarn remove contentful-import chalk inquirer rimraf "
   }
 }

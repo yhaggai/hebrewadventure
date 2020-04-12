@@ -60,7 +60,9 @@ const Game = ({ data: { contentfulGame } }) => {
     <Layout>
       <MainSection as="main">
         <GameHeader game={contentfulGame} />
-        <ImageCarousel screenshots={screenshots} thumbnails={thumbnails} />
+        {!!thumbnails && (
+          <ImageCarousel screenshots={screenshots} thumbnails={thumbnails} />
+        )}
         <Description
           title="תקציר"
           text={description.childMarkdownRemark.html}

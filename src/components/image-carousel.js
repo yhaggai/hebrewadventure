@@ -1,5 +1,4 @@
 import { Box, Flex } from './base-components';
-import { Lightbox } from 'react-modal-image';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import Img from 'gatsby-image';

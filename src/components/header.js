@@ -48,7 +48,6 @@ const Header = () => (
     <Link to="/" css={LogoStyle}>
       <Logo />
     </Link>
-    <SearchBar css={SearchBarStyle} />
     <Navigation css={NavigationStyle}></Navigation>
   </StyledGrid>
 );
