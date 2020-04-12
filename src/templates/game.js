@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
-import { css } from '@emotion/core';
-import { Grid, Box } from '../components/base-components';
+import { Grid } from '../components/base-components';
 import styled from '@emotion/styled';
-import { map, flow, zip } from 'lodash/fp';
 import Layout from '../components/layout';
 import GameHeader from '../components/game-header';
 import TextContent from '../components/text-content';
 import GameDetails from '../components/game-details';
 import ImageCarousel from '../components/image-carousel';
-import getGalleryObject from '../utils/get-gllery-object';
 
 import 'react-image-gallery/styles/css/image-gallery.css';
 
@@ -59,9 +56,6 @@ const Game = ({ data: { contentfulGame } }) => {
     thumbnails,
   } = contentfulGame;
 
-  const [galleryImages, setGalleryImages] = useState(() =>
-    getGalleryObject(contentfulGame)
-  );
   return (
     <Layout>
       <MainSection as="main">
