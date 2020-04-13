@@ -8,6 +8,9 @@ import FacebookIcon from 'emotion-icons/fa-brands/Facebook';
 import YoutubeIcon from 'emotion-icons/fa-brands/Youtube';
 import GithubIcon from 'emotion-icons/fa-brands/Github';
 
+const FACEBOOK_PAGE = 'https://www.facebook.com/groups/200491360554968/';
+const GITHUB = 'https://github.com/hebrew-adventure';
+const YOUTUBE_PAGE = 'https://www.youtube.com/channel/UCKKV7KOyXuNYV7p1tblAEtg';
 const currentYear = new Date().getFullYear();
 
 const LogoStyle = css`
@@ -18,15 +21,21 @@ const Copyrights = ({ className }) => (
   <Flex flexDirection="column" alignItems="flex-start" className={className}>
     <Logo css={LogoStyle} mb="3rem" />
     <Flex className="icons" mb="3rem">
-      <Icon>
-        <FacebookIcon size="3rem" />
-      </Icon>
-      <Icon>
-        <YoutubeIcon size="3rem" />
-      </Icon>
-      <Icon>
-        <GithubIcon size="3rem" />
-      </Icon>
+      <a href={FACEBOOK_PAGE} target="_blank">
+        <Icon>
+          <FacebookIcon size="3rem" />
+        </Icon>
+      </a>
+      <a href={YOUTUBE_PAGE} target="_blank">
+        <Icon>
+          <YoutubeIcon size="3rem" />
+        </Icon>
+      </a>
+      <a href={GITHUB} target="_blank">
+        <Icon>
+          <GithubIcon size="3rem" />
+        </Icon>
+      </a>
     </Flex>
     <Box color="brightTurquoise" opacity="0.6">
       כל הזכיות שמורות להרפתקה בעברית © {currentYear}
