@@ -20,7 +20,6 @@ const Modal = ({ callback, children }) => {
         alignItems: 'center',
         backgroundColor: 'rgba(0,0,0,0.8)',
       }}
-      onClick={callback}
     >
       <div
         style={{
