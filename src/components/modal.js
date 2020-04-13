@@ -1,12 +1,10 @@
 import ReactDOM from 'react-dom';
-import OutsideAlerter from '../utils/outside-alerter';
 // Use a ternary operator to make sure that the document object is defined
 const portalRoot =
   typeof document !== `undefined` ? document.getElementById('portal') : null;
 
 const Modal = ({ callback, children }) => {
   return ReactDOM.createPortal(
-    // <OutsideAlerter>
     <div
       style={{
         position: 'absolute',
@@ -40,7 +38,6 @@ const Modal = ({ callback, children }) => {
         <button onClick={callback}>Close</button>
       </div>
     </div>,
-    // </OutsideAlerter>,
     portalRoot
   );
 };
