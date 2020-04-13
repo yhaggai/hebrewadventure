@@ -15,6 +15,7 @@ import {
 const StyledGameGallery = styled(Flex)(GameGalleryStyle);
 
 const Games = styled(Grid)(GamesStyle);
+
 const Game = ({ game }) => (
   <Link
     to={`/games/${game.slug}`}
