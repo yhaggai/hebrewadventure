@@ -1,10 +1,10 @@
 {
   "name": "hebrew_adventure",
-  "description": "Starter Contentful Gatsby Blog",
+  "description": "Home Of The Hebrew Adventure Games",
   "version": "1.0.0",
-  "author": "Stefan Judis <stefanjudis@gmail.com>",
+  "author": "Haggai Yaniv (yhaggai@gmail.com)",
   "bugs": {
-    "url": "https://github.com/yhaggai/hebrewadventure/issues"
+    "url": "https://github.com/adventurebrew/adventurebrew-website/issues"
   },
   "dependencies": {
     "@emotion/core": "10.0.28",
@@ -60,8 +60,6 @@
   "scripts": {
     "dev": "npm run develop",
     "develop": "gatsby develop",
-    "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gatsby build",
     "setup": "node ./bin/setup.js",
     "start": "NODE_ENV=production gatsby serve ",
