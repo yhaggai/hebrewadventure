@@ -35,6 +35,6 @@ export const GameGalleryStyle = css`
 
 export const GamesStyle = css`
   margin: 5rem 0;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(36rem, 1fr));
   grid-gap: 3.5rem;
 `;

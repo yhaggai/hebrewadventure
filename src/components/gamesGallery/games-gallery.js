@@ -23,7 +23,7 @@ const Game = ({ game }) => (
     `}
   >
     <Box css={ImageWrapperStyle}>
-      <Img css={css} fluid={game.gameBox.fluid} />
+      <Img css={css} fluid={game.titleImage.fluid} />
     </Box>
     <Box mt="1.5rem" fontSize={3}>
       {game.titleHebrew}
