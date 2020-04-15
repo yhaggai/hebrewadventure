@@ -42,7 +42,7 @@ const GameHeaderStyle = css`
 `;
 
 const GameHeader = styled(({ game, ...rest }) => {
-  const { titleHebrew, title, gameBox, gameDeveloper, getGameLink } = game;
+  const { titleHebrew, title, gameBox, getGameLink } = game;
   return (
     <Grid as="section" {...rest}>
       <GameBox fluid={gameBox.fluid} />
@@ -66,12 +66,11 @@ const GameHeader = styled(({ game, ...rest }) => {
   );
 })(GameHeaderStyle);
 
-GameHeader.PropTypes = {
+GameHeader.propTypes = {
   game: PropTypes.shape({
+    gameBox: PropTypes.object,
     titleHebrew: PropTypes.string,
     title: PropTypes.string,
-    gameBox: PropTypes.string,
-    gameDeveloper: PropTypes.string,
     getGameLink: PropTypes.string,
   }),
 };
