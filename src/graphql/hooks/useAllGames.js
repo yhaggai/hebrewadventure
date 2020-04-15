@@ -13,7 +13,7 @@ export const useAllGames = () => {
           slug
           titleImage {
             fluid(maxWidth: 480, maxHeight: 300, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }
