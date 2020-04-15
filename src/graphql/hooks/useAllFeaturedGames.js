@@ -18,7 +18,7 @@ export const useAllFeaturedGames = () => {
                 resizingBehavior: PAD
                 background: "rgb:000000"
               ) {
-                ...GatsbyContentfulFluid_tracedSVG
+                ...GatsbyContentfulFluid_withWebp
               }
             }
           }

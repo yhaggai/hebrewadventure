@@ -11,9 +11,9 @@ export const useAllGames = () => {
           title
           titleHebrew
           slug
-          gameBox {
-            fluid(maxWidth: 720, maxHeight: 908, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
+          titleImage {
+            fluid(maxWidth: 480, maxHeight: 300, resizingBehavior: SCALE) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }
