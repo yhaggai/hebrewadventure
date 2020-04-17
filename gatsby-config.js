@@ -18,7 +18,12 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    url: 'https://hebrew-adventure.netlify.app',
+    title: 'הַרְפַּתְקָה עִבְרִית',
+    description: 'קְוְוֵסְטִים בְּעִבְרִית לִילָדִים וְלִמְבֻגָּרִים',
+    image: '/static/site_image.jpg',
+    titleTemplate: '%s - הַרְפַּתְקָה עִבְרִית',
+    siteLanguage: 'he',
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
@@ -33,6 +38,14 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        lang: `he`,
+        icon: `static/favicon.png`,
+        start_url: `/`,
+      },
     },
   ],
 };

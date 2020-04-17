@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 import { Grid } from '../components/base-components';
 import FeaturedGallery from '../components/featured-gallery';
 import GamesGallery from '../components/gamesGallery/games-gallery';
-
+import SEO from '../components/SEO';
 const MainContent = styled(Grid)`
   grid-area: main;
   grid-template-columns: minmax(3rem, 1fr) repeat(8, minmax(min-content, 20rem)) minmax(
@@ -20,6 +20,7 @@ const MainContent = styled(Grid)`
 
 const RootIndex = () => (
   <Layout>
+    <SEO />
     <MainContent as="main">
       <FeaturedGallery />
       <GamesGallery />

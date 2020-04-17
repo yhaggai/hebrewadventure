@@ -25,7 +25,7 @@ const GameDetailRow = styled(({ title, description, ...rest }) => {
 
 const GameDetailStyle = css`
   // prettier-ignore
-  ${GameDetailRow}:nth-child(2n) {
+  ${GameDetailRow}:nth-of-type(2n) {
     clip-path: polygon(0 0, 100% 0%, 98% 100%, 0% 100%);
     background-color: ${colors.whitefade20};
   }

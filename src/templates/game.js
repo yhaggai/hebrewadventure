@@ -7,6 +7,7 @@ import GameHeader from '../components/game-header';
 import TextContent from '../components/text-content';
 import GameDetails from '../components/game-details';
 import ImageCarousel from '../components/image-carousel';
+import SEO from '../components/SEO';
 
 import 'react-image-gallery/styles/css/image-gallery.css';
 
@@ -54,10 +55,12 @@ const Game = ({ data: { contentfulGame } }) => {
     description,
     screenshots,
     thumbnails,
+    titleHebrew,
   } = contentfulGame;
 
   return (
     <Layout>
+      <SEO title={titleHebrew} />
       <MainSection as="main">
         <GameHeader game={contentfulGame} />
         {!!thumbnails && (
